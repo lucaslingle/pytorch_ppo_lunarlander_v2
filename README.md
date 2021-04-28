@@ -5,6 +5,7 @@ Install miniconda; I suggest creating an environment for this project.
 Activate the environment and then install the dependencies:
 ```
 pip3 install torch==1.8.1 torchvision==0.9.1
+pip3 install gym
 conda install swig
 pip3 install box2d-py
 ```
