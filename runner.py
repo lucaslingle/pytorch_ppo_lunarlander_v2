@@ -200,6 +200,14 @@ class Runner:
                 if scheduler:
                     scheduler.step()
 
+                print('vf_mse: {}'.format(vf_mse))
+                print('entropy (state-averaged): {}'.format(entropy))
+                print('clipfrac: {}'.format(
+                    tc.mean(
+                        tc.greater_equal(policy_ratio * batch_advantages, clipped_policy_ratio * batch_advantages).float()
+                    )
+                ))
+
             self.environment_steps += self.trajectories_per_epoch * self.trajectory_steps
             print("Total environment steps trained on: [{}/{}]".format(self.environment_steps, max_steps))
 
